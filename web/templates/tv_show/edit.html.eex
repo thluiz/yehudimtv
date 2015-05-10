@@ -1,0 +1,6 @@
+<h2>Edit tv_show</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: tv_show_path(@conn, :update, @tv_show) %>
+
+<%= link "Back", to: tv_show_path(@conn, :index) %>

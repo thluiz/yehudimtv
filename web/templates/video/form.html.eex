@@ -1,0 +1,46 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if f.errors != [] do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below:</p>
+      <ul>
+        <%= for {attr, message} <- f.errors do %>
+          <li><%= humanize(attr) %> <%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <label>Identifier</label>
+    <%= text_input f, :identifier, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label>AmazonIdentifier</label>
+    <%= text_input f, :amazon_identifier, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label>Title</label>
+    <%= text_input f, :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label>Description</label>
+    <%= textarea f, :description, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label>Order</label>
+    <%= number_input f, :order, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label>EpisodeId</label>
+    <%= number_input f, :episode_id, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

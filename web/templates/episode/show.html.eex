@@ -1,0 +1,42 @@
+<h2>Show episode</h2>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @episode.title %>
+  </li>
+
+  <li>
+    <strong>Rabbi:</strong>
+    <%= @episode.rabbi %>
+  </li>
+
+  <li>
+    <strong>Identifier:</strong>
+    <%= @episode.identifier %>
+  </li>
+
+  <li>
+    <strong>TvshowId:</strong>
+    <%= @episode.tvshow_id %>
+  </li>
+
+  <li>
+    <strong>Publication:</strong>
+    <%= @episode.publication %>
+  </li>
+
+  <li>
+    <strong>Order:</strong>
+    <%= @episode.order %>
+  </li>
+
+  <li>
+    <strong>Spotlight:</strong>
+    <%= @episode.spotlight %>
+  </li>
+
+</ul>
+
+<%= link "Back", to: episode_path(@conn, :index) %>

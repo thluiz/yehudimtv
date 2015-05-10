@@ -1,0 +1,38 @@
+<h2>Listing episodes</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Rabbi</th>
+      <th>Identifier</th>
+      <th>TvshowId</th>
+      <th>Publication</th>
+      <th>Order</th>
+      <th>Spotlight</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for episode <- @episodes do %>
+    <tr>
+      <td><%= episode.title %></td>
+      <td><%= episode.rabbi %></td>
+      <td><%= episode.identifier %></td>
+      <td><%= episode.tvshow_id %></td>
+      <td><%= episode.publication %></td>
+      <td><%= episode.order %></td>
+      <td><%= episode.spotlight %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: episode_path(@conn, :show, episode), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: episode_path(@conn, :edit, episode), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: episode_path(@conn, :delete, episode), method: :delete, class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New episode", to: episode_path(@conn, :new) %>

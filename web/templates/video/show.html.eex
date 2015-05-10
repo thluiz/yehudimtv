@@ -1,0 +1,37 @@
+<h2>Show video</h2>
+
+<ul>
+
+  <li>
+    <strong>Identifier:</strong>
+    <%= @video.identifier %>
+  </li>
+
+  <li>
+    <strong>AmazonIdentifier:</strong>
+    <%= @video.amazon_identifier %>
+  </li>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @video.title %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @video.description %>
+  </li>
+
+  <li>
+    <strong>Order:</strong>
+    <%= @video.order %>
+  </li>
+
+  <li>
+    <strong>EpisodeId:</strong>
+    <%= @video.episode_id %>
+  </li>
+
+</ul>
+
+<%= link "Back", to: video_path(@conn, :index) %>

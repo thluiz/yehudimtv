@@ -1,0 +1,36 @@
+<h2>Listing videos</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Identifier</th>
+      <th>AmazonIdentifier</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Order</th>
+      <th>EpisodeId</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for video <- @videos do %>
+    <tr>
+      <td><%= video.identifier %></td>
+      <td><%= video.amazon_identifier %></td>
+      <td><%= video.title %></td>
+      <td><%= video.description %></td>
+      <td><%= video.order %></td>
+      <td><%= video.episode_id %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: video_path(@conn, :show, video), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: video_path(@conn, :edit, video), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: video_path(@conn, :delete, video), method: :delete, class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New video", to: video_path(@conn, :new) %>

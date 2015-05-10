@@ -1,0 +1,30 @@
+<h2>Listing tvshows</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Identifier</th>
+      <th>Description</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for tv_show <- @tvshows do %>
+    <tr>
+      <td><%= tv_show.name %></td>
+      <td><%= tv_show.identifier %></td>
+      <td><%= tv_show.description %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: tv_show_path(@conn, :show, tv_show), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: tv_show_path(@conn, :edit, tv_show), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: tv_show_path(@conn, :delete, tv_show), method: :delete, class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New tv_show", to: tv_show_path(@conn, :new) %>

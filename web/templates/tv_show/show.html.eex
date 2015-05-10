@@ -1,0 +1,22 @@
+<h2>Show tv_show</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @tv_show.name %>
+  </li>
+
+  <li>
+    <strong>Identifier:</strong>
+    <%= @tv_show.identifier %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @tv_show.description %>
+  </li>
+
+</ul>
+
+<%= link "Back", to: tv_show_path(@conn, :index) %>
