@@ -32,3 +32,6 @@ config :yehudimtv, Yehudimtv.Repo,
   username: "fxpsi",
   password: "fxpsi",
   database: "yehudimtv"
+
+
+import_config "~/configs/yehudimtv-dev.exs"

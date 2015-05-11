@@ -18,7 +18,7 @@ defmodule Yehudimtv.Mixfile do
   def application do
     [mod: {Yehudimtv, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :httpoison]]
   end
 
   # Specifies which paths to compile per environment
@@ -34,6 +34,7 @@ defmodule Yehudimtv.Mixfile do
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 1.0"},
      {:phoenix_live_reload, "~> 0.3", only: :dev},
-     {:cowboy, "~> 1.0"}]
+     {:cowboy, "~> 1.0"},
+     {:oauth2, github: "scrogson/oauth2" }]
   end
 end
