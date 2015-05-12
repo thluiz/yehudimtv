@@ -34,6 +34,17 @@ defmodule Google do
   def get_token(client, params, headers) do
     client
     |> put_header("Accept", "application/json")
-                                                                                                      |> AuthCode.get_token(params, headers)
-                                                                                                        end
+    |> AuthCode.get_token(params, headers)
+  end
+
+  def get_user_email(code) do
+    token = Google.get_token!(code: code)
+    user_data = OAuth2.AccessToken.get!(token, "https://www.googleapis.com/plus/v1/people/me")
+
+    l = user_data["emails"]
+    |> List.first
+
+    l["value"]
+  end
+
 end

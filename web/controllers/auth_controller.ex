@@ -1,5 +1,6 @@
 defmodule Yehudimtv.AuthController do
   use Yehudimtv.Web, :controller
+  alias Yehudimtv.User
 
   plug :action
 
@@ -15,13 +16,17 @@ defmodule Yehudimtv.AuthController do
   end
 
   def callback(conn, %{"code" => code}) do
-    token = Google.get_token!(code: code)
-    user_data = OAuth2.AccessToken.get!(token, "https://www.googleapis.com/plus/v1/people/me")
-    email = user_data["emails"] |> List.first
+    email = Google.get_user_email code
 
-    conn
-    |> put_session(:user_email, email["value"])
-    |> put_session(:access_token, token.access_token)
-    |> redirect(to: "/admin")
+    if User.exists?(%{ :email => email }) do
+      conn
+        |> put_session(:user_email, email)
+        |> redirect(to: "/admin")
+    else
+      conn
+        |> put_session(:user_email, nil)
+        |> redirect(to: "/admin/not_found")
+    end
   end
+
 end

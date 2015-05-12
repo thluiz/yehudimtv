@@ -35,6 +35,7 @@ defmodule Yehudimtv.Router do
     resources "/videos", VideoController
     resources "/episodes", EpisodeController
     resources "/tvshows", TvShowController
+    resources "/users", UserController
     get "/", TvShowController, :index
   end
 
