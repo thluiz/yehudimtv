@@ -4,6 +4,8 @@ defmodule Yehudimtv.PageController do
   plug :action
 
   def index(conn, _params) do
+    put_layout(conn, {Yehudimtv.PageView, "external"})
+    
     render conn, "index.html"
   end
 end
